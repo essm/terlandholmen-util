@@ -6,7 +6,7 @@ import java.awt.event.WindowAdapter;
 import java.awt.event.WindowEvent;
 import java.awt.geom.AffineTransform;
 
-public class DisplayLogo extends JPanel {
+public class DisplayFavicon extends JPanel {
 
     public void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g.create();
@@ -25,14 +25,14 @@ public class DisplayLogo extends JPanel {
 
     private AffineTransform transformationLowerLeft() {
         AffineTransform result = new AffineTransform();
-        result.translate(60, 100);
+        result.translate(0, 50);
         result.rotate(degrees45().doubleValue());
         return result;
     }
 
     private AffineTransform transformationUpperRight() {
         AffineTransform result = new AffineTransform();
-        result.translate(150, 100);
+        result.translate(90, 50);
         result.rotate(degrees225().doubleValue());
         return result;
     }
@@ -77,7 +77,7 @@ public class DisplayLogo extends JPanel {
             }
         });
         Container contentPane = frame.getContentPane();
-        contentPane.add(new DisplayLogo());
+        contentPane.add(new DisplayFavicon());
         frame.show();
     }
 }
