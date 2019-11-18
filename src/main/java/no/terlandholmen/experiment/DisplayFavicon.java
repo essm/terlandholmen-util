@@ -25,14 +25,14 @@ public class DisplayFavicon extends JPanel {
 
     private AffineTransform transformationLowerLeft() {
         AffineTransform result = new AffineTransform();
-        result.translate(0, 50);
+        result.translate(0, 70);
         result.rotate(degrees45().doubleValue());
         return result;
     }
 
     private AffineTransform transformationUpperRight() {
         AffineTransform result = new AffineTransform();
-        result.translate(90, 50);
+        result.translate(140, 70);
         result.rotate(degrees225().doubleValue());
         return result;
     }
@@ -40,17 +40,17 @@ public class DisplayFavicon extends JPanel {
     private Polygon createLogoPolygon() {
         Polygon polygon = new Polygon();
         polygon.addPoint(0,0);
-        polygon.addPoint(25,0);
-        polygon.addPoint(25,5);
-        polygon.addPoint(5,5);
-        polygon.addPoint(5,60);
-        polygon.addPoint(20,60);
-        polygon.addPoint(20,40);
-        polygon.addPoint(45,40);
-        polygon.addPoint(45,45);
-        polygon.addPoint(25,45);
-        polygon.addPoint(25,65);
-        polygon.addPoint(0,65);
+        polygon.addPoint(40,0);
+        polygon.addPoint(40,10);
+        polygon.addPoint(10,10);
+        polygon.addPoint(10,90);
+        polygon.addPoint(30,90);
+        polygon.addPoint(30,60);
+        polygon.addPoint(70,60);
+        polygon.addPoint(70,70);
+        polygon.addPoint(40,70);
+        polygon.addPoint(40,100);
+        polygon.addPoint(0,100);
         polygon.addPoint(0,0);
         return polygon;
     }
