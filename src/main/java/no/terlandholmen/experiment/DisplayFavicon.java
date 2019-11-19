@@ -32,7 +32,7 @@ public class DisplayFavicon extends JPanel {
 
     private AffineTransform transformationUpperRight() {
         AffineTransform result = new AffineTransform();
-        result.translate(140, 70);
+        result.translate(100, 70);
         result.rotate(degrees225().doubleValue());
         return result;
     }
@@ -40,17 +40,17 @@ public class DisplayFavicon extends JPanel {
     private Polygon createLogoPolygon() {
         Polygon polygon = new Polygon();
         polygon.addPoint(0,0);
-        polygon.addPoint(40,0);
-        polygon.addPoint(40,10);
+        polygon.addPoint(30,0);
+        polygon.addPoint(30,10);
         polygon.addPoint(10,10);
-        polygon.addPoint(10,90);
-        polygon.addPoint(30,90);
-        polygon.addPoint(30,60);
-        polygon.addPoint(70,60);
-        polygon.addPoint(70,70);
-        polygon.addPoint(40,70);
-        polygon.addPoint(40,100);
-        polygon.addPoint(0,100);
+        polygon.addPoint(10,60);
+        polygon.addPoint(20,60);
+        polygon.addPoint(20,40);
+        polygon.addPoint(50,40);
+        polygon.addPoint(50,50);
+        polygon.addPoint(30,50);
+        polygon.addPoint(30,70);
+        polygon.addPoint(0,70);
         polygon.addPoint(0,0);
         return polygon;
     }
@@ -70,7 +70,7 @@ public class DisplayFavicon extends JPanel {
     public static void main(String[] args) {
         JFrame frame = new JFrame();
         frame.setTitle("Terlandholmen Logo");
-        frame.setSize(350, 250);
+        frame.setSize(150, 160);
         frame.addWindowListener(new WindowAdapter() {
             public void windowClosing(WindowEvent e) {
                 System.exit(0);
