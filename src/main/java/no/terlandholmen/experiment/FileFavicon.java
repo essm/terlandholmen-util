@@ -6,8 +6,11 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 
 public class FileFavicon extends Canvas {
+
+    private static DateTimeFormatter DT_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
 
     public void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g.create();
@@ -33,7 +36,7 @@ public class FileFavicon extends Canvas {
 
     private AffineTransform transformationUpperRight() {
         AffineTransform result = new AffineTransform();
-        result.translate(140, 70);
+        result.translate(100, 70);
         result.rotate(degrees225().doubleValue());
         return result;
     }
@@ -41,17 +44,17 @@ public class FileFavicon extends Canvas {
     private Polygon createLogoPolygon() {
         Polygon polygon = new Polygon();
         polygon.addPoint(0,0);
-        polygon.addPoint(40,0);
-        polygon.addPoint(40,10);
+        polygon.addPoint(30,0);
+        polygon.addPoint(30,10);
         polygon.addPoint(10,10);
-        polygon.addPoint(10,90);
-        polygon.addPoint(30,90);
-        polygon.addPoint(30,60);
-        polygon.addPoint(70,60);
-        polygon.addPoint(70,70);
-        polygon.addPoint(40,70);
-        polygon.addPoint(40,100);
-        polygon.addPoint(0,100);
+        polygon.addPoint(10,60);
+        polygon.addPoint(20,60);
+        polygon.addPoint(20,40);
+        polygon.addPoint(50,40);
+        polygon.addPoint(50,50);
+        polygon.addPoint(30,50);
+        polygon.addPoint(30,70);
+        polygon.addPoint(0,70);
         polygon.addPoint(0,0);
         return polygon;
     }
@@ -69,15 +72,17 @@ public class FileFavicon extends Canvas {
     }
 
     public static void main(String[] args) {
-        BufferedImage bufferedImage = new BufferedImage(200, 200, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage bufferedImage = new BufferedImage(228, 228, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics2D = bufferedImage.createGraphics();
         FileFavicon fileFavicon = new FileFavicon();
         fileFavicon.paintComponent(graphics2D);
+
+        String now = DT_FORMATTER.format(java.time.LocalDateTime.now());
         try {
-            ImageIO.write(bufferedImage, "PNG", new File("d:\\terlandholmen\\xxxfavicon.PNG"));
-            ImageIO.write(bufferedImage, "JPEG", new File("d:\\terlandholmen\\xxxfavicon.JPG"));
-            ImageIO.write(bufferedImage, "gif", new File("d:\\terlandholmen\\xxxfavicon.GIF"));
-            ImageIO.write(bufferedImage, "BMP", new File("d:\\terlandholmen\\xxxfavicon.BMP"));
+            ImageIO.write(bufferedImage, "PNG", new File("d:\\terlandholmen\\xxxfavicon." + now + ".PNG"));
+            ImageIO.write(bufferedImage, "JPEG", new File("d:\\terlandholmen\\xxxfavicon." + now + ".JPG"));
+            ImageIO.write(bufferedImage, "gif", new File("d:\\terlandholmen\\xxxfavicon." + now + ".GIF"));
+            ImageIO.write(bufferedImage, "BMP", new File("d:\\terlandholmen\\xxxfavicon." + now + ".BMP"));
         } catch (IOException e) {
             e.printStackTrace();
         }
