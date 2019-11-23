@@ -29,14 +29,14 @@ public class FileFavicon extends Canvas {
 
     private AffineTransform transformationLowerLeft() {
         AffineTransform result = new AffineTransform();
-        result.translate(0, 70);
+        result.translate(0, 50);
         result.rotate(degrees45().doubleValue());
         return result;
     }
 
     private AffineTransform transformationUpperRight() {
         AffineTransform result = new AffineTransform();
-        result.translate(100, 70);
+        result.translate(100, 50);
         result.rotate(degrees225().doubleValue());
         return result;
     }
@@ -72,17 +72,17 @@ public class FileFavicon extends Canvas {
     }
 
     public static void main(String[] args) {
-        BufferedImage bufferedImage = new BufferedImage(228, 228, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage bufferedImage = new BufferedImage(146, 146, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics2D = bufferedImage.createGraphics();
         FileFavicon fileFavicon = new FileFavicon();
         fileFavicon.paintComponent(graphics2D);
 
         String now = DT_FORMATTER.format(java.time.LocalDateTime.now());
         try {
-            ImageIO.write(bufferedImage, "PNG", new File("d:\\terlandholmen\\xxxfavicon." + now + ".PNG"));
-            ImageIO.write(bufferedImage, "JPEG", new File("d:\\terlandholmen\\xxxfavicon." + now + ".JPG"));
-            ImageIO.write(bufferedImage, "gif", new File("d:\\terlandholmen\\xxxfavicon." + now + ".GIF"));
-            ImageIO.write(bufferedImage, "BMP", new File("d:\\terlandholmen\\xxxfavicon." + now + ".BMP"));
+            ImageIO.write(bufferedImage, "PNG", new File("d:\\terlandholmen\\terlandholmen.favicon." + now + ".PNG"));
+            ImageIO.write(bufferedImage, "JPEG", new File("d:\\terlandholmen\\terlandholmen.favicon." + now + ".JPG"));
+            ImageIO.write(bufferedImage, "gif", new File("d:\\terlandholmen\\terlandholmen.favicon." + now + ".GIF"));
+            ImageIO.write(bufferedImage, "BMP", new File("d:\\terlandholmen\\terlandholmen.favicon." + now + ".BMP"));
         } catch (IOException e) {
             e.printStackTrace();
         }
