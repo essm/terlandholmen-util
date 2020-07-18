@@ -6,8 +6,11 @@ import java.awt.geom.AffineTransform;
 import java.awt.image.BufferedImage;
 import java.io.File;
 import java.io.IOException;
+import java.time.format.DateTimeFormatter;
 
 public class FileFavicon extends Canvas {
+
+    private static DateTimeFormatter DT_FORMATTER = DateTimeFormatter.ofPattern("yyyyMMdd-HHmmss");
 
     public void paintComponent(Graphics g) {
         Graphics2D g2d = (Graphics2D) g.create();
@@ -69,15 +72,17 @@ public class FileFavicon extends Canvas {
     }
 
     public static void main(String[] args) {
-        BufferedImage bufferedImage = new BufferedImage(200, 200, BufferedImage.TYPE_INT_ARGB);
+        BufferedImage bufferedImage = new BufferedImage(146, 146, BufferedImage.TYPE_INT_ARGB);
         Graphics2D graphics2D = bufferedImage.createGraphics();
         FileFavicon fileFavicon = new FileFavicon();
         fileFavicon.paintComponent(graphics2D);
+
+        String now = DT_FORMATTER.format(java.time.LocalDateTime.now());
         try {
-            ImageIO.write(bufferedImage, "PNG", new File("d:\\terlandholmen\\xxxfavicon.PNG"));
-            ImageIO.write(bufferedImage, "JPEG", new File("d:\\terlandholmen\\xxxfavicon.JPG"));
-            ImageIO.write(bufferedImage, "gif", new File("d:\\terlandholmen\\xxxfavicon.GIF"));
-            ImageIO.write(bufferedImage, "BMP", new File("d:\\terlandholmen\\xxxfavicon.BMP"));
+            ImageIO.write(bufferedImage, "PNG", new File("d:\\terlandholmen\\terlandholmen.favicon." + now + ".PNG"));
+            ImageIO.write(bufferedImage, "JPEG", new File("d:\\terlandholmen\\terlandholmen.favicon." + now + ".JPG"));
+            ImageIO.write(bufferedImage, "gif", new File("d:\\terlandholmen\\terlandholmen.favicon." + now + ".GIF"));
+            ImageIO.write(bufferedImage, "BMP", new File("d:\\terlandholmen\\terlandholmen.favicon." + now + ".BMP"));
         } catch (IOException e) {
             e.printStackTrace();
         }
