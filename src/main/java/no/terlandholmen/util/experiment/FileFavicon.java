@@ -79,10 +79,8 @@ public class FileFavicon extends Canvas {
 
         String now = DT_FORMATTER.format(java.time.LocalDateTime.now());
         try {
-            ImageIO.write(bufferedImage, "PNG", new File("d:\\terlandholmen\\terlandholmen.favicon." + now + ".PNG"));
-            ImageIO.write(bufferedImage, "JPEG", new File("d:\\terlandholmen\\terlandholmen.favicon." + now + ".JPG"));
-            ImageIO.write(bufferedImage, "gif", new File("d:\\terlandholmen\\terlandholmen.favicon." + now + ".GIF"));
-            ImageIO.write(bufferedImage, "BMP", new File("d:\\terlandholmen\\terlandholmen.favicon." + now + ".BMP"));
+            ImageIO.write(bufferedImage, "PNG", new File("src/main/resources/terlandholmen.favicon." + now + ".PNG"));
+            ImageIO.write(bufferedImage, "gif", new File("src/main/resources/terlandholmen.favicon." + now + ".GIF"));
         } catch (IOException e) {
             e.printStackTrace();
         }
