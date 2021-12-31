@@ -1,4 +1,4 @@
-package no.terlandholmen.experiment;
+package no.terlandholmen.util.experiment;
 
 import javax.imageio.ImageIO;
 import java.awt.*;

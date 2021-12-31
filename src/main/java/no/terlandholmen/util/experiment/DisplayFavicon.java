@@ -1,4 +1,4 @@
-package no.terlandholmen.experiment;
+package no.terlandholmen.util.experiment;
 
 import javax.swing.*;
 import java.awt.*;
